@@ -66,6 +66,7 @@ function toggleArray(){
   }
   else{
     document.querySelector('.row').style.visibility = 'visible'
+    console.log(localElements.length)
     if(localElements.length != 0){
       for(let i = 0; i < listSize; i++){
      
@@ -81,6 +82,7 @@ function toggleTree(){
   }
   else{
     document.querySelector('.tree').style.visibility = 'visible'
+    console.log(localElements.length)
     if(localElements.length != 0){
       for(let i = 0; i < listSize; i++){
         indexElements[i + 15].innerText = localElements[i]    

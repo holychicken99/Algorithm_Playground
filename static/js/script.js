@@ -1,9 +1,8 @@
-
-
 let swap1click = false
 let gameEnd = false
 let swapPos = [-1,-1]
 let prevSwap = []
+let gameStart = false
 
 const indexElements = [];
 const unsortedArr = [];
@@ -35,7 +34,29 @@ const insertSort = (arr) => {
     }
 
   }
-  //console.log(ret)
+  return ret
+}
+
+const selectSort = (arr) => {
+  let ret=[]
+  for(let i = 0; i < arr.length; i++){
+    let min = i
+    let j = i + 1
+    while(j < arr.length){
+      if(arr[j]<arr[min]){
+        min = j
+      }
+      j++
+    }
+    if(min != i){
+      let tmp = arr[i]
+      arr[i] = arr[min]
+      arr[min] = tmp
+      let pair=[i,min]
+      ret.push(pair)
+    }
+
+  }
   return ret
 }
 
@@ -45,8 +66,11 @@ function toggleArray(){
   }
   else{
     document.querySelector('.row').style.visibility = 'visible'
-    for(let i = 0; i < listSize; i++){
-      indexElements[i].innerText = indexElements[i + 15].innerText
+    if(localElements.length != 0){
+      for(let i = 0; i < listSize; i++){
+     
+        indexElements[i].innerText = localElements[i]
+      }
     }
   }
 }
@@ -57,54 +81,46 @@ function toggleTree(){
   }
   else{
     document.querySelector('.tree').style.visibility = 'visible'
-    for(let i = 0; i < listSize; i++){
-      indexElements[i + 15].innerText = localElements[i]    
+    if(localElements.length != 0){
+      for(let i = 0; i < listSize; i++){
+        indexElements[i + 15].innerText = localElements[i]    
+      }
     }
   }
 }
 
 
   let btns = document.querySelectorAll('.gameObject')
-
-  // for(let i = 0; i < btns.length; i++){
-  //   console.log(btns[i])
-  // }
-  // for (let btn in btns ){
-  //   btn.addEventListener('click', clickFunc)
-  //   indexElements.push(btn)
-  // }
   btns.forEach(btn => {
     btn.addEventListener('click', clickFunc)
     indexElements.push(btn)
-
   })
 
   
 
 function clickFunc(){
-    //console.log(indexElements)
-    // console.log(this.getAttribute("data-pos"))
-    if(!swap1click){
-      swap1click = true
-      swapPos[0] = parseInt(this.getAttribute("data-pos"))
-      indexElements[swapPos[0]].style.backgroundColor = "orange"
-      indexElements[swapPos[0]+15].style.backgroundColor = "orange"
-    } else {
-      swapPos[1] = parseInt(this.getAttribute("data-pos"))
-      indexElements[swapPos[0]].style.backgroundColor = "rgb(71, 175, 179)"
-      indexElements[swapPos[0]+15].style.backgroundColor = "rgb(71, 175, 179)"
-      swap1click = false
-      if(swapPos[0] != swapPos[1]){
-        prevSwap.push([swapPos[0], swapPos[1]])
-        swap(swapPos)
-        if(compare(sortSequence[currStep],swapPos)) {
-      //console.log(sortSequence)
-          document.getElementById('scoreBoard').innerText = 'Correct move'
-        } else {
-          document.getElementById('scoreBoard').innerText = 'Incorrect move'
-        }
-        currStep += 1
-      } 
+    if(gameStart){
+      if(!swap1click){
+        swap1click = true
+        swapPos[0] = parseInt(this.getAttribute("data-pos"))
+        indexElements[swapPos[0]].style.backgroundColor = "orange"
+        indexElements[swapPos[0]+15].style.backgroundColor = "orange"
+      } else {
+        swapPos[1] = parseInt(this.getAttribute("data-pos"))
+        indexElements[swapPos[0]].style.backgroundColor = "rgb(71, 175, 179)"
+        indexElements[swapPos[0]+15].style.backgroundColor = "rgb(71, 175, 179)"
+        swap1click = false
+        if(swapPos[0] != swapPos[1]){
+          prevSwap.push([swapPos[0], swapPos[1]])
+          swap(swapPos)
+          if(compare(sortSequence[currStep],swapPos)) {
+            document.getElementById('scoreBoard').innerText = 'Correct move'
+          } else {
+            document.getElementById('scoreBoard').innerText = 'Incorrect move'
+          }
+          currStep += 1
+        } 
+      }
     }
 
 }
@@ -130,9 +146,7 @@ function genRandomList(){
   for(let i = 0; i < listSize; i++){
     unsortedArr.push(arr[i]) 
   }
-  //console.log(unsortedArr)
 
-  // sortSequence=
 }
 
 
@@ -140,21 +154,18 @@ function genRandomList(){
 const undoBtn = document.querySelector('#undo')
 undoBtn.addEventListener('click', ()=>{
   swap1click = false
-  //indexElements[swapPos[0]].style.backgroundColor = "pink"
-  //indexElements[swapPos[0]+15].style.backgroundColor = "pink"
+
   if(prevSwap.length != 0){
     indexElements[prevSwap[prevSwap.length-1][0]].style.backgroundColor = "rgb(71, 175, 179)"
     indexElements[prevSwap[prevSwap.length-1][0]+15].style.backgroundColor = "rgb(71, 175, 179)"
-    //console.log(prevSwap)
     swapPos = prevSwap.pop()
-    //console.log(prevSwap)
     swap(swapPos)
     swapPos = [-1,-1]
     currStep -= 1
-
-    // for(i = 0; i < numRange*2 ; i++){
-    // indexElements[i].style.backgroundColor = 'pink'
-    // }
+  }
+  else if(swapPos[0] != -1){
+    indexElements[swapPos[0]].style.backgroundColor = "rgb(71, 175, 179)"
+    indexElements[swapPos[0] + 15].style.backgroundColor = "rgb(71, 175, 179)"
   }
 })
 
@@ -178,7 +189,6 @@ function resetElements(){
     indexElements[i+15].style.backgroundColor = "rgb(71, 175, 179)"
     localElements[i] = unsortedArr[i]
   }
-  gameEnd = false
 }
 
 
@@ -203,30 +213,23 @@ newGameBtn.addEventListener('click', ()=>{
   prevSwap.length = 0
   currStep = 0
   document.getElementById('scoreBoard').innerText = 'Begin Game'
+  gameEnd = false
+  gameStart = true
 })
 
 
 // SWAP ELEMENTS AFTER CLICK
 function swap(arr){
-  let temp = indexElements[arr[0]].innerText
-  indexElements[arr[0]].innerText = indexElements[arr[1]].innerText
-  indexElements[arr[1]].innerText = temp
-  let temp15 = indexElements[arr[0]+15].innerText
-  indexElements[arr[0]+15].innerText = indexElements[arr[1]+15].innerText
-  indexElements[arr[1]+15].innerText = temp15
-  let localTemp = localElements[arr[0]]
-  localElements[arr[0]] = localElements[arr[1]]
-  localElements[arr[1]] = localTemp
-  //prevSwap[0] = arr[0]
-  //prevSwap[1] = arr[1]
-  /*console.log("sortSequence")
-  console.log(sortSequence)
-  console.log("currStep")
-  console.log(currStep)
-  console.log("arr0")
-  console.log(arr)*/
+    let temp = indexElements[arr[0]].innerText
+    indexElements[arr[0]].innerText = indexElements[arr[1]].innerText
+    indexElements[arr[1]].innerText = temp
+    let temp15 = indexElements[arr[0]+15].innerText
+    indexElements[arr[0]+15].innerText = indexElements[arr[1]+15].innerText
+    indexElements[arr[1]+15].innerText = temp15
+    let localTemp = localElements[arr[0]]
+    localElements[arr[0]] = localElements[arr[1]]
+    localElements[arr[1]] = localTemp
 
-  // console.log([0,1] === [0,1]) 
 }
 
 function compare(a, b){

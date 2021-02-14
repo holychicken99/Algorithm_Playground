@@ -20,7 +20,7 @@
  ![](starting_page.png)
 * follow the algorithm and swap the elements in the same order as computer does it 
  ![](part1.png)
- ![](part2.png)
+ ![](stage_2.png)
 
 
 ### Contribution guidelines ###

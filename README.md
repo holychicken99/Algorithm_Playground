@@ -17,10 +17,10 @@
 
 * choose any of the sorting algorithm given in the dropdown button
 * press on new game 
-* ![](starting_page.png)
+ ![](starting_page.png)
 * follow the algorithm and swap the elements in the same order as computer does it 
-* ![](part1.png)
-* ![](part2.png)
+ ![](part1.png)
+ ![](part2.png)
 
 
 ### Contribution guidelines ###

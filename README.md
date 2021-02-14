@@ -11,7 +11,7 @@
 *  pip install flask 
 * open and run  app.py
 * open local host in your browser
-* [algorithm]https://petal-wood-mercury.glitch.me
+* [algorithm](https://petal-wood-mercury.glitch.me)
 
 ### Contribution guidelines ###
 * user1

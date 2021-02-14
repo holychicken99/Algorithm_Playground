@@ -26,7 +26,7 @@
 ### Contribution guidelines ###
 * Alan chang aca160@sfu.ca
 * Akki singh asa297@sfu.ca
-* 
+* Seth Liu liuyadal@sfu.ca
 * Yi Hui Chen cvincentc@hotmail.com
 ### Who do I talk to? ###
 

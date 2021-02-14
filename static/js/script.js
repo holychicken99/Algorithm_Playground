@@ -24,7 +24,7 @@ const insertSort = (arr) => {
 
   let ret=[]
   for(let i = 1; i<temp.length; i++){
-    j = i - 1
+    let j = i - 1
     while(j >= 0 && temp[j] > temp[j + 1]){
       let tempVal = temp[j]
       temp[j] = temp[j + 1]
@@ -66,7 +66,6 @@ function toggleArray(){
   }
   else{
     document.querySelector('.row').style.visibility = 'visible'
-    console.log(localElements.length)
     if(localElements.length != 0){
       for(let i = 0; i < listSize; i++){
      
@@ -82,7 +81,7 @@ function toggleTree(){
   }
   else{
     document.querySelector('.tree').style.visibility = 'visible'
-    console.log(localElements.length)
+    
     if(localElements.length != 0){
       for(let i = 0; i < listSize; i++){
         indexElements[i + 15].innerText = localElements[i]    
@@ -136,8 +135,8 @@ function genRandomList(){
   }
 
   for(let i = 0; i < 100; i++){
-    rand1 = Math.floor((Math.random() * numRange))
-    rand2 = Math.floor((Math.random() * numRange))
+    let rand1 = Math.floor((Math.random() * numRange))
+    let rand2 = Math.floor((Math.random() * numRange))
 
     let temp = arr[rand1]
     arr[rand1] = arr[rand2]

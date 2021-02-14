@@ -4,25 +4,19 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
+* This is an interactive playground where users can learn sorting algorithms in visual manner
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* python version 3.0 or more
+*  pip install flask 
+* open and run  app.py
+* open local host in your browser
 
 ### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
+* user1
+* user2
+* user3
+* user4
 ### Who do I talk to? ###
 
 * Repo owner or admin

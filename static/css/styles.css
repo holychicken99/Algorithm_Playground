@@ -1,0 +1,124 @@
+.header{
+  padding: 10px;
+  height: auto;
+}
+
+#algorithm{
+  display: inline-block;
+  margin-right: 10px;
+}
+#loader{
+  position:fixed;
+
+width:100%;
+height :100vh;
+background:#3d3535 url('../assets/preloader.gif')  no-repeat center;
+z-index:999;
+
+}
+
+#reset{
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px
+}
+#undo{
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#newGame{
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#scoreBoard{
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.row{
+  padding: 10px 0px;
+  display: grid;
+  position: block;
+  grid-template-columns:repeat(15, 50px);
+  grid-template-rows: 50px;
+  gap: 5px;
+  grid-template-areas:
+  "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen";
+}
+
+.item0{
+  grid-area: zero;
+}
+.item1{
+  grid-area: one;
+}
+.item2{
+  grid-area: two;
+}
+.item3{
+  grid-area: three;
+}
+.item4{
+  grid-area: four;
+}
+.item5{
+  grid-area: five;
+}
+.item6{
+  grid-area: six;
+}
+.item7{
+  grid-area: seven;
+}
+.item8{
+  grid-area: eight;
+}
+.item9{
+  grid-area: nine;
+}
+.item10{
+  grid-area: ten;
+}
+.item11{
+  grid-area: eleven;
+}
+.item12{
+  grid-area: twelve;
+}
+.item13{
+  grid-area: thirteen;
+}
+.item14{
+  grid-area: fourteen;
+}
+.item15{
+  grid-area: fifteen;
+}
+.gameObject{
+  background-color: rgb(71, 175, 179);
+  height: auto;
+  border: 2px solid black;
+  font-size: 30px;
+  text-align: center;
+  padding: 0px;
+}
+
+.gameObject:hover{
+  background-color:rgb(197, 231, 252)!important;;
+}
+.tree{
+  padding: 10px 0px;
+  display: grid;
+  grid-template-columns: repeat(15, 50px);
+  grid-template-rows: repeat(7, 50px);
+  grid-template-areas:
+  ". . . . . . . zero . . . . . . ."
+  ". . . . . . . . . . . . . . ."
+  ". . . one . . . . . . . two . . ."
+  ". . . . . . . . . . . . . . ."
+  ". three . . . four . . . five . . . six ."
+  ". . . . . . . . . . . . . . ."
+  "seven .  eight . nine . ten . eleven . twelve . thirteen . fourteen";
+}

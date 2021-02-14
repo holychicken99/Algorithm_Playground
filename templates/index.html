@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+
+  <head>
+     <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>lgorithm</title>
+  <link rel="icon" type="image/x-icon" href="{{url_for('static',filename='assets/icon.ico')}}"/>
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{url_for('static',filename='css/bootstrap.css')}}" rel="stylesheet" />
+    <link href="{{url_for('static',filename='css/styles.css')}}" rel="stylesheet" type="text/css" />
+  </head>
+
+
+
+
+
+
+  <body  style ="background-image: url('https://i.ibb.co/JqWLvpp/bg-masthead.jpg')">
+
+  <header class="masthead">
+    <!-- <h1 class="mx-auto my-0 text-uppercase" style="top:10px;">ALGORITHM</h1> -->
+
+            <div class="container d-flex h-100 align-items-center">
+              
+                <div class="mx-auto text-center">
+          
+                   <!-- <h2 class="my-0 mx-auto  text-uppercase mt-2 mb-5">ALGORITHM</h2> -->
+                
+
+    <div class="header">
+      <select   name="algorithm" id="algorithm">
+        <option value="a">Insertion Sort</option>
+        <option value="b">Selection Sort</option>
+      </select>
+
+
+
+
+      <button class ="btn btn-primary" id="reset" type="button">Reset</button>
+      <button  class ="btn btn-primary" id="undo" type="button">Undo</button>
+      <button class ="btn btn-primary" id="newGame" type="button">New Game</button> 
+
+
+
+
+
+
+
+
+
+
+       <div  class="mx-auto text-center">
+           <h2  id="scoreBoard" class="text-white-50 mx-auto mt-2 mb-5" style="text-align:center; ">Begin Game </h2>
+
+
+           <label class="container text-white-50 " onclick="toggleArray()"     style ="  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px; " > HIDE ARRAY
+  <input id="toggleArray" type="checkbox">
+  <span class="checkmark"></span>
+</label>
+
+
+        <label class="container text-white-50  " onclick="toggleTree()" style="  position: fixed;
+ bottom:45px;
+  right: 0;
+  width: 300px;" >HIDE TREE
+  <input id="toggleTree" type="checkbox">
+  <span class="checkmark"></span>
+</label>
+      <!-- <div  id="scoreBoard">Begin Game</div> -->
+
+
+
+
+    </div>
+    <div class="row"> 
+      <div class="item0 gameObject" id="id0" data-pos="0"></div>
+      <div class="item1 gameObject" id="id1" data-pos="1"></div>
+      <div class="item2 gameObject" id="id2" data-pos="2"></div>
+      <div class="item3 gameObject" id="id3" data-pos="3"></div>
+      <div class="item4 gameObject" id="id4" data-pos="4"></div>
+      <div class="item5 gameObject" id="id5" data-pos="5"></div>
+      <div class="item6 gameObject" id="id6" data-pos="6"></div>
+      <div class="item7 gameObject" id="id7" data-pos="7"></div>
+      <div class="item8 gameObject" id="id8" data-pos="8"></div>
+      <div class="item9 gameObject" id="id9" data-pos="9"></div>
+      <div class="item10 gameObject" id="id10" data-pos="10"></div>
+      <div class="item11 gameObject" id="id11" data-pos="11"></div>
+      <div class="item12 gameObject" id="id12" data-pos="12"></div>
+      <div class="item13 gameObject" id="id13" data-pos="13"></div>
+      <div class="item14 gameObject" id="id14" data-pos="14"></div>
+    </div>
+    <div class="tree">
+      <div class="item0 gameObject" id="id0" data-pos="0"></div>
+      <div class="item1 gameObject" id="id1" data-pos="1"></div>
+      <div class="item2 gameObject" id="id2" data-pos="2"></div>
+      <div class="item3 gameObject" id="id3" data-pos="3"></div>
+      <div class="item4 gameObject" id="id4" data-pos="4"></div>
+      <div class="item5 gameObject" id="id5" data-pos="5"></div>
+      <div class="item6 gameObject" id="id6" data-pos="6"></div>
+      <div class="item7 gameObject" id="id7" data-pos="7"></div>
+      <div class="item8 gameObject" id="id8" data-pos="8"></div>
+      <div class="item9 gameObject" id="id9" data-pos="9"></div>
+      <div class="item10 gameObject" id="id10" data-pos="10"></div>
+      <div class="item11 gameObject" id="id11" data-pos="11"></div>
+      <div class="item12 gameObject" id="id12" data-pos="12"></div>
+      <div class="item13 gameObject" id="id13" data-pos="13"></div>
+      <div class="item14 gameObject" id="id14" data-pos="14"></div>
+    </div>
+    <script src="{{url_for('static',filename='js/script.js')}}"></script>
+
+    
+    <div class="social d-flex justify-content-center style="bottom:0;" >
+      <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+      <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+      <a class="mx-2" href="#!"><i class="fab fa-bitbucket"></i></a>
+  </div>
+
+
+
+      </div>
+
+      
+            </div>
+        </header>
+
+   
+  
+  </body>
+</html>
